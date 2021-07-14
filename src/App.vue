@@ -4,6 +4,7 @@
  </div>
 </template>
 <style>
+
 .form {
   margin: 100px auto;
   width: 800px;
@@ -48,5 +49,6 @@ padding: 10px 0 30px 30px;
   text-align: center;
   color: white;
   margin: 0 30px;
+  text-decoration: none;
 }
 </style>

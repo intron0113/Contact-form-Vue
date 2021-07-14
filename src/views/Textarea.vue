@@ -15,11 +15,22 @@
       </div>
     </div>
     <div class="next-button">
-      <button class="btn" type="reset">前へ戻る ></button>
-      <button class="btn" type="submit">次に進む ></button>
+      <!-- <router-link class="btn" to="/users" tag="button" type="reset">前へ戻る ></router-link>
+      <router-link class="btn" to="#" tag="button" type="submit">次に進む ></router-link> -->
+      <button @click="toUsers" class="btn" type="reset">前へ戻る ></button>
+      <button  class="btn" type="submit">次に進む ></button>
     </div>
   </div>
 </template>
+<script>
+export default{
+ methods:{
+   toUsers(){
+      this.$router.push('users');
+    },
+ }
+}
+</script>
 <style scope>
 textarea{
   margin: 5px 10px;
@@ -28,3 +39,4 @@ textarea{
   font-size: 18px;
 }
 </style>
+

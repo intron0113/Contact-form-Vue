@@ -125,7 +125,17 @@
       </div>
     </div>
     <div class="next-button">
-      <button class="btn" type="submit">次に進む ></button>
+      <!-- <router-link class="btn" to="/users" tag="button" type="submit">次に進む ></router-link> -->
+      <button  @click="toUsers" class="btn" type="submit">次に進む ></button>
     </div>
   </div>
 </template>
+<script>
+export default{
+ methods:{
+   toUsers(){
+      this.$router.push('users');
+    }
+ }
+}
+</script>

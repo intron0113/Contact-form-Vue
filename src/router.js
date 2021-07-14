@@ -8,7 +8,7 @@ Vue.use(Router);
 
 
 export default  new Router({
-made:"history",
+mode:"history",
 //component URLを紐付けする//
 routes:[{path:'/',component:Home},{path:'/users',component:Users},{path:'/textarea',component:Textarea}]
 });
