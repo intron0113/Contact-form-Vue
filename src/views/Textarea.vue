@@ -29,11 +29,6 @@
 </template>
 <script>
 export default {
-  computed: {
-    message() {
-      return this.$store.getters.message;
-    },
-  },
   methods: {
     updateMessage(e) {
       this.$store.dispatch('updateMessage', e.target.value);
