@@ -14,7 +14,8 @@
                 v-on:change="q2 = !q2"
                 type="radio"
                 name="insurance-1"
-                value="yes"
+                value="はい"
+                v-model="insurance1"
               />はい</label
             >
             <label
@@ -22,7 +23,8 @@
                 v-on:change="q2 = !q2"
                 type="radio"
                 name="insurance-1"
-                value="no"
+                value="いいえ"
+                v-model="insurance1"
               />いいえ</label
             >
           </div>
@@ -36,7 +38,8 @@
                   v-on:change="q3 = !q3"
                   type="radio"
                   name="insurance-2"
-                  value="yes"
+                  value="はい"
+                  v-model="insurance2"
                 />はい</label
               >
               <label
@@ -44,22 +47,33 @@
                   v-on:change="q3 = !q3"
                   type="radio"
                   name="insurance-2"
-                  value="no"
+                  value="いいえ"
+                  v-model="insurance2"
                 />いいえ</label
               >
             </div>
           </transition>
           <transition name="fade">
             <div v-if="q3">
-            <p>
-              過去5年以内に、病気やけがで、手術をうけたことまたは継続して7日以上の入院をした事がありますか?
-            </p>
-            <label
-              ><input type="radio" name="insurance-3" value="yes" />はい</label
-            >
-            <label
-              ><input type="radio" name="insurance-3" value="no" />いいえ</label
-            >
+              <p>
+                過去5年以内に、病気やけがで、手術をうけたことまたは継続して7日以上の入院をした事がありますか?
+              </p>
+              <label
+                ><input
+                  type="radio"
+                  name="insurance-3"
+                  value="はい"
+                  v-model="insurance3"
+                />はい</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="insurance-3"
+                  value="いいえ"
+                  v-model="insurance3"
+                />いいえ</label
+              >
             </div>
           </transition>
         </form>
@@ -79,6 +93,32 @@ export default {
       q3: false,
     };
   },
+  computed: {
+    insurance1: {
+      get() {
+        return this.$store.getters.insurance1;
+      },
+      set(value) {
+        this.$store.dispatch('queInsurance1', value);
+      },
+    },
+    insurance2: {
+      get() {
+        return this.$store.getters.insurance2;
+      },
+      set(value) {
+        this.$store.dispatch('queInsurance2', value);
+      },
+    },
+    insurance3: {
+      get() {
+        return this.$store.getters.insurance3;
+      },
+      set(value) {
+        this.$store.dispatch('queInsurance3', value);
+      },
+    },
+  },
   methods: {
     toHome() {
       this.$router.push('/');
@@ -89,28 +129,26 @@ export default {
   },
 };
 </script>
-<style  scoped>
-  .fade-enter{
-    opacity: 0;
-  }
-  
-  
-  .fade-enter-active {
-    transition: opacity 1s;
-  }
-  .fade-enter-to {
-    opacity: 1;
-  }
+<style scoped>
+.fade-enter {
+  opacity: 0;
+}
 
-  .fade-leave{
-    opacity: 1;
-  }
-  
-  .fade-leave-active {
-    transition: opacity 1s;
-  }
-  .fade-leave-to {
-    opacity: 0;
-  }
+.fade-enter-active {
+  transition: opacity 1s;
+}
+.fade-enter-to {
+  opacity: 1;
+}
+
+.fade-leave {
+  opacity: 1;
+}
+
+.fade-leave-active {
+  transition: opacity 1s;
+}
+.fade-leave-to {
+  opacity: 0;
+}
 </style>
-
