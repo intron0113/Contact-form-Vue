@@ -13,7 +13,7 @@
               type="radio"
               name="sex"
               value="男性"
-              v-model="picked"
+              v-model="sex"
             />男性</label
           >
           <label
@@ -21,14 +21,14 @@
               type="radio"
               name="sex"
               value="女性"
-              v-model="picked"
+              v-model="sex"
             />女性</label
           >
           <p>-生年月日-</p>
           <div>
             <select id="year" v-model="year">
               <option v-for="i in 100" :value="i + 1920" :key="i">{{
-                (i + 1920) | nengo
+                (i + 1920) | japaneseCalendar
               }}</option>
             </select>
             <span>年</span>
@@ -53,15 +53,42 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      year: 1990,
-      month: 1,
-      day: 1,
-    };
+  computed: {
+    sex: {
+      get() {
+        return this.$store.getters.sex;
+      },
+      set(value) {
+        this.$store.dispatch('setSex', value);
+      },
+    },
+    year: {
+      get() {
+        return this.$store.getters.year;
+      },
+      set(value) {
+        this.$store.dispatch('setYear', value);
+      },
+    },
+    month: {
+      get() {
+        return this.$store.getters.month;
+      },
+      set(number) {
+        this.$store.dispatch('setMonth', number);
+      },
+    },
+    day: {
+      get() {
+        return this.$store.getters.day;
+      },
+      set(number) {
+        this.$store.dispatch('setDay', number);
+      },
+    },
   },
   filters: {
-    nengo(y) {
+    japaneseCalendar(y) {
       let result;
       if (y > 2018) {
         result = `${y} (令和${y - 2018}年)`;

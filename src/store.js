@@ -5,17 +5,17 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    picked: '',
+    sex: '',
     message: '',
-    year: '',
-    month: '',
-    day: '',
+    year: '1990',
+    month: '1',
+    day: '1',
     insurance1: '',
     insurance2: '',
     insurance3: '',
   },
   getters: {
-    picked: (state) => state.picked,
+    sex: (state) => state.sex,
     message: (state) => state.message,
     year: (state) => state.year,
     month: (state) => state.month,
@@ -25,55 +25,55 @@ export default new Vuex.Store({
     insurance3: (state) => state.insurance3,
   },
   mutations: {
-    pickedSex(state, sex) {
-      state.picked = sex;
+    setSex(state, sex) {
+      state.sex = sex;
     },
-    updateMessage(state, newMessage) {
+    setMessage(state, newMessage) {
       state.message = newMessage;
     },
-    selectYear(state, sYear) {
+    setYear(state, sYear) {
       state.year = sYear;
     },
-    selectMonth(state, sMonth) {
+    setMonth(state, sMonth) {
       state.month = sMonth;
     },
-    selectDay(state, sDay) {
+    setDay(state, sDay) {
       state.day = sDay;
     },
-    queInsurance1(state, qInsurance1) {
+    setInsurance1(state, qInsurance1) {
       state.insurance1 = qInsurance1;
     },
-    queInsurance2(state, qInsurance2) {
+    setInsurance2(state, qInsurance2) {
       state.insurance2 = qInsurance2;
     },
-    queInsurance3(state, qInsurance3) {
+    setInsurance3(state, qInsurance3) {
       state.insurance3 = qInsurance3;
     },
   },
   actions: {
-    pickedSex({ commit }, sex) {
-      commit('pickedSex', sex);
+    setSex({ commit }, sex) {
+      commit('setSex', sex);
     },
-    updateMessage({ commit }, newMessage) {
-      commit('updateMessage', newMessage);
+    setMessage({ commit }, newMessage) {
+      commit('setMessage', newMessage);
     },
-    selectYear({ commit }, sYear) {
-      commit('selectYear', sYear);
+    setYear({ commit }, sYear) {
+      commit('setYear', sYear);
     },
-    selectMonth({ commit }, sMonth) {
-      commit('selectMonth', sMonth);
+    setMonth({ commit }, sMonth) {
+      commit('setMonth', sMonth);
     },
-    selectDay({ commit }, sDay) {
-      commit('selectDay', sDay);
+    setDay({ commit }, sDay) {
+      commit('setDay', sDay);
     },
-    queInsurance1({ commit }, qInsurance1) {
-      commit('queInsurance1', qInsurance1);
+    setInsurance1({ commit }, qInsurance1) {
+      commit('setInsurance1', qInsurance1);
     },
-    queInsurance2({ commit }, qInsurance2) {
-      commit('queInsurance2', qInsurance2);
+    setInsurance2({ commit }, qInsurance2) {
+      commit('setInsurance2', qInsurance2);
     },
-    queInsurance3({ commit }, qInsurance3) {
-      commit('queInsurance3', qInsurance3);
+    setInsurance3({ commit }, qInsurance3) {
+      commit('setInsurance3', qInsurance3);
     },
   },
 });

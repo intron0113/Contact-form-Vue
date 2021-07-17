@@ -23,15 +23,20 @@
     </div>
     <div class="next-button">
       <button @click="toUsers" class="btn" type="reset">前へ戻る ></button>
-      <button class="btn" type="submit">次に進む ></button>
+      <button @click="toSending" class="btn" type="submit">次に進む ></button>
     </div>
   </div>
 </template>
 <script>
 export default {
+  computed: {
+    message() {
+      return this.$store.getters.message;
+    },
+  },
   methods: {
     updateMessage(e) {
-      this.$store.dispatch('updateMessage', e.target.value);
+      this.$store.dispatch('setMessage', e.target.value);
     },
     toUsers() {
       this.$router.push('users');

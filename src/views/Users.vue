@@ -93,6 +93,32 @@ export default {
       q3: false,
     };
   },
+  computed: {
+    insurance1: {
+      get() {
+        return this.$store.getters.insurance1;
+      },
+      set(value) {
+        this.$store.dispatch('setInsurance1', value);
+      },
+    },
+    insurance2: {
+      get() {
+        return this.$store.getters.insurance2;
+      },
+      set(value) {
+        this.$store.dispatch('setInsurance2', value);
+      },
+    },
+    insurance3: {
+      get() {
+        return this.$store.getters.insurance3;
+      },
+      set(value) {
+        this.$store.dispatch('setInsurance3', value);
+      },
+    },
+  },
   methods: {
     toHome() {
       this.$router.push('/');
